@@ -16,7 +16,7 @@ Esse projeto tem como objetivo fixar os conceitos de Node.js aprendidos até ago
 - Remover repositórios
 - Curtir um repositório
 
-### Rotas da aplicação
+## :twisted_rightwards_arrows: Rotas da aplicação
 
 - **`POST /repositories`**: Recebe `title`, `url` e `techs` dentro do corpo da requisição, sendo a URL o link para o github desse repositório. 
 
@@ -39,7 +39,7 @@ Após baixar o projeto, abra uma aba do terminal e execute os seguintes comandos
 $ cd gostack-conceitos-nodejs
 # ../pasta-de-destino/gostack-conceitos-nodejs
 $ ls
-# jest.config.js   node_modules   nodemon.json   package.json   src   yarn.lock   README.md
+# jest.config.js node_modules   nodemon.json   package.json   src   yarn.lock   README.md
 $ yarn
 ```
 
