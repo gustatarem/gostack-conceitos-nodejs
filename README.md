@@ -39,7 +39,7 @@ Após baixar o projeto, abra uma aba do terminal e execute os seguintes comandos
 $ cd gostack-conceitos-nodejs
 # ../pasta-de-destino/gostack-conceitos-nodejs
 $ ls
-# jest.config.js node_modules   nodemon.json   package.json   src   yarn.lock   README.md
+# jest.config.js   node_modules   nodemon.json   package.json   src   yarn.lock   README.md
 $ yarn
 ```
 
