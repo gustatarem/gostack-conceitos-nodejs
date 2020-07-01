@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { uuid } = require("uuidv4");
-const stringToArray = require('./utils/stringToArray');
+const { uuid, isUuid } = require("uuidv4");
 
 const app = express();
 
@@ -17,9 +16,7 @@ app.get("/repositories", (request, response) => {
 app.post("/repositories", (request, response) => {
   const { title, url, techs } = request.body;
 
-  const techsArray = stringToArray(techs);
-
-  const repository = { id: uuid(), title, url, techs: techsArray, likes: 0 };
+  const repository = { id: uuid(), title, url, techs, likes: 0 };
 
   repositories.push(repository);
 
@@ -36,15 +33,13 @@ app.put("/repositories/:id", (request, response) => {
     return response.status(400).json({ error: 'Repository not found' });
   }
 
-  const techsArray = stringToArray(techs);
-
   let repository = repositories[repositoryIndex];
 
   repository = {
     ...repository,
     title,
     url,
-    techs: techsArray
+    techs
   }
 
   repositories[repositoryIndex] = repository;
@@ -67,7 +62,17 @@ app.delete("/repositories/:id", (request, response) => {
 });
 
 app.post("/repositories/:id/like", (request, response) => {
-  // TODO
+  const { id } = request.params;
+
+  const repository = repositories.find(repository => repository.id === id);
+
+  if (!repository) {
+    return response.status(400).json({ error: 'Repository not found' });
+  }
+
+  repository.likes += 1;
+
+  return response.json(repository);
 });
 
 module.exports = app;
